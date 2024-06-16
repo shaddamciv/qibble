@@ -1,0 +1,10 @@
+{
+  "name": "qibble",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": ["oracle", "counter", "market", "market-app"],
+  "repository": "git@github.com:shaddamciv/qibble.git",
+  "author": "corrino <corrinoshaddamthefourth@gmail.com>",
+  "license": "MIT"
+}
