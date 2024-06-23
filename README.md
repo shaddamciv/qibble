@@ -11,6 +11,11 @@ It uses dynamic for login and onboarding. It relies on STARK tokens for collater
 - Migrate to Gnosis Conditional Token Framework for a more expressive prediction market language
 - Create an AI powered Oracle to resolve markets instead of human resolution
 
+### Deployments 
+#### Sepolia 
+
+https://sepolia.voyager.online/contract/0x00224c79bfde3c5ef6d1d97fc0a5a576c640db494d766fd9b92be13d9dec711b#events
+
 ## How It Works
 
 #### Market Creation

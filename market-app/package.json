@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@dynamic-labs/ethereum": "^2.2.1",
+    "@dynamic-labs/iconic": "^2.2.4",
     "@dynamic-labs/sdk-react-core": "^2.2.1",
+    "@dynamic-labs/starknet": "^2.2.2",
     "react": "^18",
     "react-dom": "^18",
+    "starknet": "^5.24.3",
     "viem": "^2.15.1"
   },
   "devDependencies": {

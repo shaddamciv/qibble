@@ -1,6 +1,13 @@
 import { useState } from "react";
-import { DynamicContextProvider, DynamicWidget } from '@dynamic-labs/sdk-react-core';
+import { DynamicContextProvider, FilterChain  } from '@dynamic-labs/sdk-react-core';
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
+import { StarknetWalletConnectors } from "@dynamic-labs/starknet";
+// import { StarknetProvider } from "./starknet-provider";
+// import { Balance } from "./components/Balance";
+import {
+  StarknetIcon,
+  EthereumIcon,
+} from '@dynamic-labs/iconic';
 import Header from './Header';
 
 import "./App.css";
@@ -16,18 +23,54 @@ function App() {
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
   };
+  const EthWallets = {
+    label: { icon: <EthereumIcon /> },
+    walletsFilter: FilterChain('EVM'),
+    recommendedWallets: [
+      {
+        walletKey: 'metamask',
+      },
+    ],
+  };
 
+  const StarkWallets = {
+    label: { icon: <StarknetIcon /> },
+    walletsFilter: FilterChain('STARK'),
+    recommendedWallets: [
+      {
+        walletKey: 'argentx',
+        label: 'New'
+      },
+    ],
+  };
+
+  const views = [
+    {
+      type: 'wallet-list',
+      tabs: {
+        items: [
+          EthWallets,
+          StarkWallets,
+        ]
+      }
+    }
+  ];
   return (
     <div className="App">
         <DynamicContextProvider
     settings={{
       environmentId: '3098d7de-c530-4d38-b982-4951515795db',
-      walletConnectors: [ EthereumWalletConnectors ],
+      walletConnectors: [EthereumWalletConnectors, StarknetWalletConnectors  ],
+      overrides: {
+        views: views,
+      },
     }}>
         <Header />
+        
       <div className="card w-100 bg-base-100 shadow-xl">
         <div className="card-body items-center text-center">
           <h2 className="card-title">Will the price of BTC go above 70K by 2024?</h2>
+          
           <input 
             type="number" 
             value={amount} 
