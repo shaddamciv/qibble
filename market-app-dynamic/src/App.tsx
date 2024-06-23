@@ -12,7 +12,8 @@ import {
   StarknetIcon,
   EthereumIcon,
 } from '@dynamic-labs/iconic';
-import { RpcProvider, Contract } from "starknet";
+import { RpcProvider, Contract, provider } from "starknet";
+import { ProviderDisconnectedError } from "viem";
 
 
 const App = () => {
@@ -67,7 +68,7 @@ const App = () => {
           environmentId: "3098d7de-c530-4d38-b982-4951515795db",
           walletConnectors: [StarknetWalletConnectors],
           overrides: {
-            views: views,
+            views: views
           },
       }}
 
