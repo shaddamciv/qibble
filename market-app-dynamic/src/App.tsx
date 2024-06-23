@@ -1,19 +1,23 @@
 import { useState } from "react";
-
-import { DynamicContextProvider, DynamicWidget, FilterChain } from "@dynamic-labs/sdk-react-core";
+import React from "react";
+import { DynamicContextProvider, DynamicWidget, FilterChain, useDynamicContext } from "@dynamic-labs/sdk-react-core";
 import { StarknetWalletConnectors } from "@dynamic-labs/starknet";
 
 import SignMessage from './SignMessage.tsx';
-
+import Balance from './Balance.tsx';
+import Predict from "./Predict.tsx";
 import './App.css';
 
 import {
   StarknetIcon,
   EthereumIcon,
 } from '@dynamic-labs/iconic';
+import { RpcProvider, Contract } from "starknet";
+
 
 const App = () => {
   const [amount, setAmount] = useState('');
+
   const [transactions, setTransactions] = useState([
     // Sample data
     { date: '2022-01-01', hash: '0x123', amount: 1, type: 'Buy', currentValue: 50000 },
@@ -56,6 +60,7 @@ const App = () => {
     }
   ];
 
+
   return (
     <DynamicContextProvider
         settings={{
@@ -69,10 +74,12 @@ const App = () => {
       locale={locale}
     >
       <DynamicWidget />
+      <Balance></Balance>
       <div className="card w-100 bg-base-100 shadow-xl">
         <div className="card-body items-center text-center">
+        
           <h2 className="card-title">Will the price of BTC go above 70K by 2024?</h2>
-          
+        
           <input 
             type="number" 
             value={amount} 
@@ -81,8 +88,8 @@ const App = () => {
             className="input input-bordered mt-4"
           />
           <div className="card-actions mt-4">
-            <button className="btn btn-primary">Buy</button>
-            <button className="btn btn-secondary ml-4">Sell</button>
+            <Predict></Predict>
+            <button className="btn btn-secondary ml-4">No</button>
           </div>
           <table className="table w-96 mt-4">
             <thead>

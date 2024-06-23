@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
-  "workspaces": ["oracle", "counter", "market", "market-app"],
+  "workspaces": [
+    "oracle",
+    "counter",
+    "market",
+    "market-app"
+  ],
   "repository": "git@github.com:shaddamciv/qibble.git",
   "author": "corrino <corrinoshaddamthefourth@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "starknet": "^5.25.0"
+  }
 }
