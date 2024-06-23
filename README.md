@@ -1,3 +1,7 @@
+
+<img src="./qibble.png" alt="drawing" style="width:200px; display:block; margin:auto;"/>
+
+
 ## Introduction
 
 This was made for the StarkHack 2024 event, it is a basic prediction market concept. 
